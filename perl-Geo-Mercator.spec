@@ -1,19 +1,18 @@
 %define upstream_name    Geo-Mercator
 %define upstream_version 1.01
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Compute Mercator Projection of latitude/longitude into meters
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Geo/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Compute Mercator Projection of latitude/longitude into meters
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Geo/%{upstream_name}-%{upstream_version}.tar.gz
 
-
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description
 Computes Mercator Projection of input latitude/longitude coordinates (in
@@ -40,23 +39,29 @@ Notes
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
-
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Mon Apr 18 2011 Funda Wang <fwang@mandriva.org> 1.10.0-2mdv2011.0
++ Revision: 654968
+- rebuild for updated spec-helper
+
+* Sun May 31 2009 Jérôme Quelin <jquelin@mandriva.org> 1.10.0-1mdv2011.0
++ Revision: 381700
+- import perl-Geo-Mercator
+
+
+* Sun May 31 2009 cpan2dist 1.01-1mdv
+- initial mdv release, generated with cpan2dist
 

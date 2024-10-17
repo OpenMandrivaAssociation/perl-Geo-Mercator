@@ -8,7 +8,7 @@ Release:	5
 Summary:	Compute Mercator Projection of latitude/longitude into meters
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Geo/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel

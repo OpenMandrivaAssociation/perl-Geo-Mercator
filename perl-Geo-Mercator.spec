@@ -1,15 +1,13 @@
 %define upstream_name    Geo-Mercator
-%define upstream_version 1.01
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	6
+Version:	1.01
+Release:	7
 
 Summary:	Compute Mercator Projection of latitude/longitude into meters
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Geo-Mercator
-Source0:	https://cpan.metacpan.org/authors/id/D/DA/DARNOLD/Geo-Mercator-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/D/DA/DARNOLD/Geo-Mercator-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -37,7 +35,7 @@ Notes
     function instead.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
